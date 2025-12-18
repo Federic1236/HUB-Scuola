@@ -6,8 +6,61 @@
     <title>HUB Scuola - Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,100..900,0..100,0..1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Overlay per l'effetto denial */
+        #denial-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #denial-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 10001;
+        }
+
+        #denial-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+            z-index: 10002;
+        }
+
+        .close-denial {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #bdf231;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 800;
+            cursor: pointer;
+            z-index: 10003;
+            font-family: 'Figtree', sans-serif;
+        }
+    </style>
 </head>
 <body>
+
+    <div id="denial-screen">
+        <button class="close-denial" onclick="closeDenial()">CHIUDI ✕</button>
+        <img id="denial-image" src="./images/scary.png" alt="Accesso Negato">
+        <video id="denial-video" src="./videos/denial-video.mp4" loop playsinline></video>
+    </div>
+
     <div class="container">
         <section class="branding">
             <div class="pattern-overlay"></div>
@@ -17,7 +70,7 @@
                 <h1 class="fraunces-title">
                     Tre editori,
                     <br>
-                   un unico profilo
+                    un unico profilo
                 </h1>
                 
                 <div class="logo-card">
@@ -47,20 +100,6 @@
                 </nav>
 
                 <div class="alert-box">
-                    <csvg xmlns="http://www.w3.org/2000/svg" width="18" height="23" viewBox="0 0 18 23" +111="none" aria-hidden="true">
-<mask x="e" y="0" width="18" height="23"></mask>
-<g mask="url(#mask0_2452_66679)">
-<path d="M17.014 0.427734H0.992249V1.33511H1.88266C4.65182 1.33511 7.16641 2.40127 9.02902 4.14002H17.814V0.4277342" fill="#259786"></path>
-<path d="M17.0143 4.14062H9.02936C10.1317 5.16936 11.0049 6.43514 11.5658 7.85291H17.0143V4.14062Z" fill="#71BFD7"></path>
-<path d="M17.0138 7.8527H11.5654C12.0204 9.00279 12.2715 10.255 12.2715 11.5638H17.015V7.85156117.0138 7.85272" fill="#994A8B"></path>
-<path d="M17.0143 11.5664H12.2708C12.2708 12.8764 12.0208 14.1286 11.5647 15.2787H17.0143V11.56642" fill="#DF1C19"></path>
-<path d="M17.0137 15.2773H11.564C11.0019 16.6962 10.1288 17.9689 9.02527 18.9896H17.0137V15.2773Z" fill="#EA7C26"></path>
-<path d="M17.014 22.7006V18.9883H9.02556C7.1641 20.7248 4.64951 21.7909 1.88151 21.7909H0.992249V22.7006H17.0142" fill="#F38803"></path>
-<path d="M5.65981 11.5666C5.65981 9.59195 4.09669 7.97796 2.12234 7.85547H8.960083V11.5678H5.66897" fill="#994A88"></path>
-<path d="M5.65981 11.5664H0.960083V15.2787H2.0924C4.08057 15.1721 5.66097 13.5513 5.66097 11.5664" fill="#DF1C19"></path>
-</g>
-</svg>
-
                     <p>Hai un profilo Deascuola? Usa le stesse e-mail e password per accedere ad HUB Scuola.</p>
                 </div>
 
@@ -121,6 +160,48 @@
                 passwordInput.type = 'password';
                 eyeIcon.style.backgroundImage = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/svg%3E\")";
             }
+        }
+
+        // Gestione Login e Sequenza Video
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (email === "" || password === "") {
+                triggerDenialSequence();
+            }
+        });
+
+        function triggerDenialSequence() {
+            const screen = document.getElementById('denial-screen');
+            const img = document.getElementById('denial-image');
+            const video = document.getElementById('denial-video');
+            
+            // 1. Mostra overlay con immagine
+            screen.style.display = 'flex';
+            img.style.display = 'block';
+            video.style.display = 'none';
+            
+            // Pre-carica il video
+            video.load();
+
+            // 2. Dopo 3 secondi (3000ms), toglie immagine e fa partire video
+            setTimeout(() => {
+                img.style.display = 'none';
+                video.style.display = 'block';
+                video.volume = 1.0;
+                video.currentTime = 0;
+                video.play().catch(err => console.log("Auto-play bloccato:", err));
+            }, 3000);
+        }
+
+        function closeDenial() {
+            const screen = document.getElementById('denial-screen');
+            const video = document.getElementById('denial-video');
+            video.pause();
+            screen.style.display = 'none';
         }
     </script>
 </body>
