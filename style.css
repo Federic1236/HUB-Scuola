@@ -104,7 +104,8 @@ body {
 
 .explore-link {
     color: var(--hsc-lime);
-    text-decoration: none;
+    text-decoration: underline;
+    text-underline-offset: 4px;
     font-weight: 700;
     font-size: 1.1rem;
     display: inline-flex;
