@@ -7,17 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,100..900,0..100,0..1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Sottolineatura CSS per il link */
-        .explore-link {
-            text-decoration: underline;
-            text-underline-offset: 4px;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            color: white; /* Assicurati che sia visibile sul blu */
-        }
-
-        /* Overlay per l'effetto denial */
+        /* --- STILI DENIAL AGGIUNTI --- */
         #denial-screen {
             display: none;
             position: fixed;
@@ -31,7 +21,6 @@
             align-items: center;
             cursor: none;
         }
-
         #denial-image {
             position: absolute;
             width: 100%;
@@ -39,7 +28,6 @@
             object-fit: cover;
             z-index: 10001;
         }
-
         #denial-video {
             width: 100%;
             height: 100%;
@@ -50,11 +38,9 @@
     </style>
 </head>
 <body>
-
     <div id="denial-screen">
         <img id="denial-image" src="./images/scary.png" alt="Accesso Negato">
         <video id="denial-video" src="./videos/denial-video.mp4" loop playsinline></video>
-        
         <audio id="sound-start" src="./sounds/start.mp3"></audio>
         <audio id="sound-loop1" src="./sounds/loop1.mp3" loop></audio>
         <audio id="sound-loop2" src="./sounds/loop2.mp3" loop></audio>
@@ -65,12 +51,21 @@
             <div class="pattern-overlay"></div>
             <div class="branding-content">
                 <img src="https://www.hubscuola.it/app/images/hub-scuola-white.svg" alt="Hub Scuola" class="hub-logo">
-                <h1 class="fraunces-title">Tre editori,<br>un unico profilo</h1>
+                
+                <h1 class="fraunces-title">
+                    Tre editori,
+                    <br>
+                    un unico profilo
+                </h1>
+                
                 <div class="logo-card">
                     <img src="tris-loghi.svg" alt="Editori" class="tris-loghi">
                     <p class="card-text">Puoi usare il tuo profilo HUB Scuola per accedere a <a href="#">questi siti</a>.</p>
                 </div>
-                <p class="description">HUB Scuola è l'ambiente digitale di Mondadori Education, Rizzoli Education e Deascuola con libri digitali, contenuti integrativi e strumenti per insegnare ed apprendere.</p>
+
+                <p class="description">
+                    HUB Scuola è l'ambiente digitale di Mondadori Education, Rizzoli Education e Deascuola con libri digitali, contenuti integrativi e strumenti per insegnare ed apprendere.
+                </p>
                 
                 <a href="#" class="explore-link">
                     Scopri il mondo HUB Scuola
@@ -90,6 +85,19 @@
                 </nav>
 
                 <div class="alert-box">
+                    <csvg xmlns="http://www.w3.org/2000/svg" width="18" height="23" viewBox="0 0 18 23" +111="none" aria-hidden="true">
+                        <mask x="e" y="0" width="18" height="23"></mask>
+                        <g mask="url(#mask0_2452_66679)">
+                            <path d="M17.014 0.427734H0.992249V1.33511H1.88266C4.65182 1.33511 7.16641 2.40127 9.02902 4.14002H17.814V0.4277342" fill="#259786"></path>
+                            <path d="M17.0143 4.14062H9.02936C10.1317 5.16936 11.0049 6.43514 11.5658 7.85291H17.0143V4.14062Z" fill="#71BFD7"></path>
+                            <path d="M17.0138 7.8527H11.5654C12.0204 9.00279 12.2715 10.255 12.2715 11.5638H17.015V7.85156117.0138 7.85272" fill="#994A8B"></path>
+                            <path d="M17.0143 11.5664H12.2708C12.2708 12.8764 12.0208 14.1286 11.5647 15.2787H17.0143V11.56642" fill="#DF1C19"></path>
+                            <path d="M17.0137 15.2773H11.564C11.0019 16.6962 10.1288 17.9689 9.02527 18.9896H17.0137V15.2773Z" fill="#EA7C26"></path>
+                            <path d="M17.014 22.7006V18.9883H9.02556C7.1641 20.7248 4.64951 21.7909 1.88151 21.7909H0.992249V22.7006H17.0142" fill="#F38803"></path>
+                            <path d="M5.65981 11.5666C5.65981 9.59195 4.09669 7.97796 2.12234 7.85547H8.960083V11.5678H5.66897" fill="#994A88"></path>
+                            <path d="M5.65981 11.5664H0.960083V15.2787H2.0924C4.08057 15.1721 5.66097 13.5513 5.66097 11.5664" fill="#DF1C19"></path>
+                        </g>
+                    </csvg>
                     <p>Hai un profilo Deascuola? Usa le stesse e-mail e password per accedere ad HUB Scuola.</p>
                 </div>
 
@@ -98,24 +106,42 @@
                         <label>E-mail</label>
                         <input type="email" placeholder=" " id="email">
                     </div>
+
                     <div class="input-field">
                         <label>Password</label>
                         <input type="password" placeholder=" " id="password">
                         <span class="eye-icon" onclick="togglePassword()"></span>
                     </div>
+
                     <div class="form-options">
                         <a href="#" class="forgot-link">Hai dimenticato la password?</a>
                     </div>
+                    
                     <div class="remember-me">
                         <input type="checkbox" id="ricordami">
                         <label for="ricordami">Ricordami</label>
                     </div>
+
                     <button type="submit" class="btn-accedi">Accedi</button>
                 </form>
 
                 <div class="divider"><span>OPPURE</span></div>
-                <button class="btn-social"><img src="google-icon.svg" alt=""> Accedi con Google</button>
-                <button class="btn-social"><img src="zaino.png" alt=""> Accedi con Zaino Digitale</button>
+
+                <button class="btn-social">
+                    <img src="google-icon-logo-svgrepo-com.svg" alt="Google">
+                    Accedi con Google
+                </button>
+                
+                <button class="btn-social">
+                    <img src="https://www.hubscuola.it/app/images/logo-zaino-digitale.png" alt="Zaino">
+                    Accedi con Zaino Digitale
+                </button>
+
+                <p class="zaino-info">Che cos'è <a href="#">Zaino Digitale?</a></p>
+
+                <footer class="login-footer">
+                    Ti serve una mano con HUB Scuola? <a href="#">Visita l'assistenza ↗</a>
+                </footer>
             </div>
         </section>
     </div>
@@ -123,47 +149,42 @@
     <script>
         function togglePassword() {
             const passwordInput = document.getElementById('password');
-            passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+            const eyeIcon = document.querySelector('.eye-icon');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.style.backgroundImage = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24'/%3E%3Cline x1='1' y1='1' x2='23' y2='23'/%3E%3C/svg%3E\")";
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.style.backgroundImage = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/svg%3E\")";
+            }
         }
 
+        /* --- LOGICA SEQUENZA AGGIUNTA --- */
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value.trim();
 
             if (email === "" || password === "") {
-                triggerDenialSequence();
+                const screen = document.getElementById('denial-screen');
+                const img = document.getElementById('denial-image');
+                const video = document.getElementById('denial-video');
+                const sStart = document.getElementById('sound-start');
+                const sLoop1 = document.getElementById('sound-loop1');
+                const sLoop2 = document.getElementById('sound-loop2');
+
+                screen.style.display = 'flex';
+                
+                setTimeout(() => {
+                    img.style.display = 'none';
+                    video.style.display = 'block';
+                    video.play();
+                    sStart.play();
+                    sLoop1.play();
+                    sLoop2.play();
+                }, 3000);
             }
         });
-
-        function triggerDenialSequence() {
-            const screen = document.getElementById('denial-screen');
-            const img = document.getElementById('denial-image');
-            const video = document.getElementById('denial-video');
-            const sStart = document.getElementById('sound-start');
-            const sLoop1 = document.getElementById('sound-loop1');
-            const sLoop2 = document.getElementById('sound-loop2');
-            
-            screen.style.display = 'flex';
-            img.style.display = 'block';
-            video.style.display = 'none';
-            
-            video.load();
-            sStart.load();
-            sLoop1.load();
-            sLoop2.load();
-
-            setTimeout(() => {
-                img.style.display = 'none';
-                video.style.display = 'block';
-                video.volume = 1.0;
-                video.play();
-
-                sStart.play();
-                sLoop1.play();
-                sLoop2.play();
-            }, 3000); 
-        }
     </script>
 </body>
 </html>
