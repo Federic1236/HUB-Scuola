@@ -7,6 +7,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,100..900,0..100,0..1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
+        /* Sottolineatura CSS per il link */
+        .explore-link {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: white; /* Assicurati che sia visibile sul blu */
+        }
+
         /* Overlay per l'effetto denial */
         #denial-screen {
             display: none;
@@ -19,7 +29,7 @@
             z-index: 10000;
             justify-content: center;
             align-items: center;
-            cursor: none; /* Nasconde il cursore per immersione totale */
+            cursor: none;
         }
 
         #denial-image {
@@ -61,15 +71,14 @@
                     <p class="card-text">Puoi usare il tuo profilo HUB Scuola per accedere a <a href="#">questi siti</a>.</p>
                 </div>
                 <p class="description">HUB Scuola è l'ambiente digitale di Mondadori Education, Rizzoli Education e Deascuola con libri digitali, contenuti integrativi e strumenti per insegnare ed apprendere.</p>
-                <a href="#" class="explore-link">Scopri il mondo HUB Scuola</a>
-                <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                
+                <a href="#" class="explore-link">
+                    Scopri il mondo HUB Scuola
+                    <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M2.66666 13.1074L13.2733 2.50075" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M13.2733 12.5L13.2733 2.5L3.27327 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </a>
-            </div>
-        </section>
-
             </div>
         </section>
 
@@ -135,31 +144,24 @@
             const sLoop1 = document.getElementById('sound-loop1');
             const sLoop2 = document.getElementById('sound-loop2');
             
-            // 1. Fase Immagine (Mostra subito l'immagine per 3 secondi)
             screen.style.display = 'flex';
             img.style.display = 'block';
             video.style.display = 'none';
             
-            // Pre-caricamento video e suoni
             video.load();
             sStart.load();
             sLoop1.load();
             sLoop2.load();
 
-            // 2. Fase Video + Suoni (Dopo 3000ms)
             setTimeout(() => {
                 img.style.display = 'none';
                 video.style.display = 'block';
-                
-                // Play Video
                 video.volume = 1.0;
                 video.play();
 
-                // Play Audio simultanei
-                sStart.play();  // Suona una volta
-                sLoop1.play();  // In loop
-                sLoop2.play();  // In loop
-                
+                sStart.play();
+                sLoop1.play();
+                sLoop2.play();
             }, 3000); 
         }
     </script>
