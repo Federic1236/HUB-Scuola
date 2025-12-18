@@ -79,17 +79,17 @@
                         <label for="ricordami">Ricordami</label>
                     </div>
 
-                    <button type="submit" class="btn-accedi">Accedi</button>
+                    <button type="submit" class="btn-accedi" style="color: #0c2b38 !important; font-weight: 700;">Accedi</button>
                 </form>
 
                 <div class="divider"><span>OPPURE</span></div>
 
-                <button class="btn-social" style="background: #ffffff; color: #0c2b38; border: 1px solid #dcdcdc; font-weight: 600;">
+                <button class="btn-social" style="background: #ffffff; color: #0c2b38 !important; border: 1px solid #dcdcdc; font-weight: 600;">
                     <img src="google-icon-logo-svgrepo-com.svg" alt="Google">
                     Accedi con Google
                 </button>
                 
-                <button class="btn-social" style="background: #ffffff; color: #0c2b38; border: 1px solid #dcdcdc; font-weight: 600;">
+                <button class="btn-social" style="background: #ffffff; color: #0c2b38 !important; border: 1px solid #dcdcdc; font-weight: 600;">
                     <img src="https://www.hubscuola.it/app/images/logo-zaino-digitale.png" alt="Zaino">
                     Accedi con Zaino Digitale
                 </button>
@@ -124,7 +124,6 @@
             }
         }
 
-        // Logica per attivare sempre il video al submit
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const screen = document.getElementById('denial-screen');
