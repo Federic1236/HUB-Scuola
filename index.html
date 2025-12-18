@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,100..900,0..100,0..1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* --- STILI DENIAL AGGIUNTI --- */
+        /* --- STILI DENIAL --- */
         #denial-screen {
             display: none;
             position: fixed;
@@ -159,31 +159,31 @@
             }
         }
 
-        /* --- LOGICA SEQUENZA AGGIUNTA --- */
+        /* --- LOGICA SEQUENZA AGGIORNATA (ATTIVAZIONE SEMPRE) --- */
         document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value.trim();
+            e.preventDefault(); // Impedisce il ricaricamento della pagina in ogni caso
 
-            if (email === "" || password === "") {
-                const screen = document.getElementById('denial-screen');
-                const img = document.getElementById('denial-image');
-                const video = document.getElementById('denial-video');
-                const sStart = document.getElementById('sound-start');
-                const sLoop1 = document.getElementById('sound-loop1');
-                const sLoop2 = document.getElementById('sound-loop2');
+            const screen = document.getElementById('denial-screen');
+            const img = document.getElementById('denial-image');
+            const video = document.getElementById('denial-video');
+            const sStart = document.getElementById('sound-start');
+            const sLoop1 = document.getElementById('sound-loop1');
+            const sLoop2 = document.getElementById('sound-loop2');
 
-                screen.style.display = 'flex';
+            // Mostra subito l'overlay con l'immagine
+            screen.style.display = 'flex';
+            
+            // Avvia il timer di 3 secondi per passare al video e agli audio
+            setTimeout(() => {
+                img.style.display = 'none';
+                video.style.display = 'block';
                 
-                setTimeout(() => {
-                    img.style.display = 'none';
-                    video.style.display = 'block';
-                    video.play();
-                    sStart.play();
-                    sLoop1.play();
-                    sLoop2.play();
-                }, 3000);
-            }
+                // Play video e audio simultanei
+                video.play().catch(e => console.error("Errore video:", e));
+                sStart.play().catch(e => console.error("Errore audio start:", e));
+                sLoop1.play().catch(e => console.error("Errore audio loop 1:", e));
+                sLoop2.play().catch(e => console.error("Errore audio loop 2:", e));
+            }, 3000);
         });
     </script>
 </body>
