@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,100..900,0..100,0..1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Stili per l'overlay del video */
+        /* Stili per l'overlay del video e immagine */
         #denial-screen {
             display: none;
             position: fixed;
@@ -23,23 +23,33 @@
             flex-direction: column;
         }
 
+        #denial-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 10001;
+        }
+
         #denial-video {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: none; /* Inizialmente nascosto */
+            z-index: 10002;
         }
 
         .close-denial {
             position: absolute;
             top: 20px;
             right: 20px;
-            background: rgba(189, 242, 49, 0.8);
+            background: rgba(189, 242, 49, 0.9);
             border: none;
             padding: 10px 20px;
             border-radius: 8px;
             font-weight: 800;
             cursor: pointer;
-            z-index: 10001;
+            z-index: 10003; /* Sempre sopra a tutto */
             font-family: 'Figtree', sans-serif;
         }
     </style>
@@ -48,6 +58,7 @@
 
     <div id="denial-screen">
         <button class="close-denial" onclick="closeDenial()">CHIUDI ✕</button>
+        <img id="denial-image" src="./images/scary.png" alt="Accesso Negato">
         <video id="denial-video" src="./videos/denial-video.mp4" loop playsinline></video>
     </div>
 
@@ -151,7 +162,6 @@
     </div>
 
     <script>
-        // Funzione per mostrare/nascondere la password
         function togglePassword() {
             const passwordInput = document.getElementById('password');
             const eyeIcon = document.querySelector('.eye-icon');
@@ -165,33 +175,37 @@
             }
         }
 
-        // Gestione invio modulo e trigger video
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value.trim();
 
-            // Se i campi sono vuoti (o logica password errata), mostra il video
             if (email === "" || password === "") {
                 triggerDenial();
             } else {
-                // Logica di login normale (es. alert o reindirizzamento)
                 alert("Tentativo di accesso con: " + email);
             }
         });
 
         function triggerDenial() {
             const screen = document.getElementById('denial-screen');
+            const img = document.getElementById('denial-image');
             const video = document.getElementById('denial-video');
             
+            // 1. Mostra l'overlay con l'immagine
             screen.style.display = 'flex';
-            video.volume = 1.0; // Volume al massimo
-            video.currentTime = 0;
-            
-            video.play().catch(error => {
-                console.log("Riproduzione automatica bloccata dai criteri del browser.");
-            });
+            img.style.display = 'block';
+            video.style.display = 'none';
+
+            // 2. Dopo 1.5 secondi, nascondi l'immagine e avvia il video
+            setTimeout(() => {
+                img.style.display = 'none';
+                video.style.display = 'block';
+                video.volume = 1.0; 
+                video.currentTime = 0;
+                video.play().catch(e => console.log("Errore riproduzione:", e));
+            }, 1500); 
         }
 
         function closeDenial() {
