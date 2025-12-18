@@ -40,32 +40,34 @@
         .explore-link {
             text-decoration: underline !important;
             text-underline-offset: 4px;
+            color: white; /* Rimane bianco perché sta sulla parte blu sinistra */
         }
 
-        /* --- PULSANTI SOCIAL (Testo azzurro chiaro su sfondo blu scuro) --- */
+        /* --- PULSANTI SOCIAL (Sfondo Bianco, Testo #0c2b38) --- */
         .btn-social {
-            background-color: #002d5d !important; /* Blu Scuro */
-            color: #71BFD7 !important;           /* Azzurro chiaro (mobile style) */
-            border: 1px solid #002d5d !important;
+            background-color: #ffffff !important; 
+            color: #0c2b38 !important;           
+            border: 1px solid #dcdcdc !important; /* Grigio leggero per dare profondità al bianco */
             font-weight: 600;
         }
 
-        /* --- FOOTER ASSISTENZA (Testo blu scuro con freccia) --- */
-        .login-footer {
-            color: #666; /* Testo normale grigio */
-        }
-        
-        .login-footer a {
-            color: #002d5d !important; /* Testo link blu scuro */
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            font-weight: 700;
+        /* --- ELEMENTI IN BLU SCURO (#0c2b38) --- */
+        .login-footer a, 
+        .zaino-info a, 
+        .forgot-link, 
+        .card-text a {
+            color: #0c2b38 !important;
+            font-weight: 600;
         }
 
         .footer-arrow {
-            stroke: #002d5d; /* Colore della freccia blu scuro */
+            stroke: #0c2b38; /* Colore della freccia nel footer */
+        }
+
+        /* Se il titolo o altri testi della sezione login devono essere #0c2b38 */
+        .tab.active {
+            color: #0c2b38 !important;
+            border-bottom-color: #0c2b38 !important;
         }
     </style>
 </head>
