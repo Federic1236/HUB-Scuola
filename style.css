@@ -1,0 +1,129 @@
+:root {
+    --dark-bg: #0b2d39;
+    --lime-btn: #bdf231;
+    --text-main: #003744;
+    --border-gray: #d1d5db;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Figtree', sans-serif;
+    color: var(--text-main);
+}
+
+.container { display: flex; min-height: 100vh; }
+
+/* --- Branding Side --- */
+.branding {
+    flex: 1.1;
+    background-color: var(--dark-bg);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 40px;
+}
+
+.svg-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+
+.branding-content { position: relative; z-index: 2; text-align: center; max-width: 480px; }
+
+.fraunces-title {
+    font-family: 'Fraunces', serif;
+    font-size: 3.5rem;
+    line-height: 1;
+    margin: 20px 0;
+    font-variation-settings: "SOFT" 100, "WONK" 1;
+}
+
+.logo-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.logos { display: flex; justify-content: space-around; margin-bottom: 15px; font-weight: bold; }
+
+.explore-link { color: var(--lime-btn); text-decoration: none; font-weight: 600; }
+
+/* --- Login Side --- */
+.login { flex: 0.9; background: white; display: flex; justify-content: center; align-items: center; padding: 40px; }
+
+.login-wrapper { width: 100%; max-width: 440px; }
+
+.tabs { display: flex; gap: 30px; border-bottom: 1px solid #eee; margin-bottom: 30px; }
+
+.tab { text-decoration: none; color: #6b7280; font-weight: 700; padding-bottom: 10px; }
+
+.tab.active { color: var(--text-main); border-bottom: 3px solid var(--text-main); }
+
+/* Input labels sitting on border */
+.input-field {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-field label {
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    background: white;
+    padding: 0 5px;
+    font-size: 0.85rem;
+    color: #374151;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--border-gray);
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.btn-accedi {
+    width: 100%;
+    background-color: var(--lime-btn);
+    border: none;
+    padding: 16px;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-social {
+    width: 100%;
+    padding: 14px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.help-fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
