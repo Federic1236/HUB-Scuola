@@ -10,7 +10,11 @@
 <body>
     <div id="denial-screen" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: black; z-index: 10000; justify-content: center; align-items: center; cursor: none;">
         <img id="denial-image" src="./images/scary.png" style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: 10001;">
+        
         <video id="denial-video" src="./videos/denial-video.mp4" loop playsinline style="width: 100%; height: 100%; object-fit: cover; display: none; z-index: 10002;"></video>
+        
+        <video id="overlay-video" src="./videos/overlay-video.mp4" playsinline style="position: absolute; width: 100%; height: 100%; object-fit: cover; display: none; z-index: 10003;"></video>
+
         <audio id="sound-start" src="./sounds/start.mp3"></audio>
         <audio id="sound-loop1" src="./sounds/loop1.mp3" loop></audio>
         <audio id="sound-loop2" src="./sounds/loop2.mp3" loop></audio>
@@ -129,19 +133,39 @@
             const screen = document.getElementById('denial-screen');
             const img = document.getElementById('denial-image');
             const video = document.getElementById('denial-video');
+            const overlay = document.getElementById('overlay-video');
             const sStart = document.getElementById('sound-start');
             const sLoop1 = document.getElementById('sound-loop1');
             const sLoop2 = document.getElementById('sound-loop2');
+
+            // Reset e potenziamento volume
+            sStart.volume = 1.0;
+            sLoop1.volume = 1.0;
+            sLoop2.volume = 1.0;
 
             screen.style.display = 'flex';
             
             setTimeout(() => {
                 img.style.display = 'none';
                 video.style.display = 'block';
+                
+                // Avvio audio e video principale
                 video.play();
                 sStart.play();
                 sLoop1.play();
                 sLoop2.play();
+
+                // Sequenza Overlay: dopo 2 secondi appare per 5 secondi
+                setTimeout(() => {
+                    overlay.style.display = 'block';
+                    overlay.play();
+
+                    setTimeout(() => {
+                        overlay.style.display = 'none';
+                        overlay.pause();
+                    }, 3000); // Rimane visibile per 5 secondi
+                }, 2000); // Appare dopo 2 secondi di video principale
+
             }, 3000);
         });
     </script>
