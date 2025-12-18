@@ -35,6 +35,26 @@
             display: none;
             z-index: 10002;
         }
+
+        /* --- STILI AGGIORNATI PULSANTI E FOOTER --- */
+        .btn-social {
+            background-color: #002d5d !important; /* Blu scuro istituzionale */
+            color: white !important;
+            border: none !important;
+        }
+
+        .login-footer a {
+            color: #002d5d !important;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-weight: 600;
+        }
+
+        .footer-arrow {
+            color: #002d5d;
+        }
     </style>
 </head>
 <body>
@@ -51,22 +71,12 @@
             <div class="pattern-overlay"></div>
             <div class="branding-content">
                 <img src="https://www.hubscuola.it/app/images/hub-scuola-white.svg" alt="Hub Scuola" class="hub-logo">
-                
-                <h1 class="fraunces-title">
-                    Tre editori,
-                    <br>
-                    un unico profilo
-                </h1>
-                
+                <h1 class="fraunces-title">Tre editori,<br>un unico profilo</h1>
                 <div class="logo-card">
                     <img src="tris-loghi.svg" alt="Editori" class="tris-loghi">
                     <p class="card-text">Puoi usare il tuo profilo HUB Scuola per accedere a <a href="#">questi siti</a>.</p>
                 </div>
-
-                <p class="description">
-                    HUB Scuola è l'ambiente digitale di Mondadori Education, Rizzoli Education e Deascuola con libri digitali, contenuti integrativi e strumenti per insegnare ed apprendere.
-                </p>
-                
+                <p class="description">HUB Scuola è l'ambiente digitale di Mondadori Education, Rizzoli Education e Deascuola con libri digitali, contenuti integrativi e strumenti per insegnare ed apprendere.</p>
                 <a href="#" class="explore-link">
                     Scopri il mondo HUB Scuola
                     <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -85,19 +95,6 @@
                 </nav>
 
                 <div class="alert-box">
-                    <csvg xmlns="http://www.w3.org/2000/svg" width="18" height="23" viewBox="0 0 18 23" +111="none" aria-hidden="true">
-                        <mask x="e" y="0" width="18" height="23"></mask>
-                        <g mask="url(#mask0_2452_66679)">
-                            <path d="M17.014 0.427734H0.992249V1.33511H1.88266C4.65182 1.33511 7.16641 2.40127 9.02902 4.14002H17.814V0.4277342" fill="#259786"></path>
-                            <path d="M17.0143 4.14062H9.02936C10.1317 5.16936 11.0049 6.43514 11.5658 7.85291H17.0143V4.14062Z" fill="#71BFD7"></path>
-                            <path d="M17.0138 7.8527H11.5654C12.0204 9.00279 12.2715 10.255 12.2715 11.5638H17.015V7.85156117.0138 7.85272" fill="#994A8B"></path>
-                            <path d="M17.0143 11.5664H12.2708C12.2708 12.8764 12.0208 14.1286 11.5647 15.2787H17.0143V11.56642" fill="#DF1C19"></path>
-                            <path d="M17.0137 15.2773H11.564C11.0019 16.6962 10.1288 17.9689 9.02527 18.9896H17.0137V15.2773Z" fill="#EA7C26"></path>
-                            <path d="M17.014 22.7006V18.9883H9.02556C7.1641 20.7248 4.64951 21.7909 1.88151 21.7909H0.992249V22.7006H17.0142" fill="#F38803"></path>
-                            <path d="M5.65981 11.5666C5.65981 9.59195 4.09669 7.97796 2.12234 7.85547H8.960083V11.5678H5.66897" fill="#994A88"></path>
-                            <path d="M5.65981 11.5664H0.960083V15.2787H2.0924C4.08057 15.1721 5.66097 13.5513 5.66097 11.5664" fill="#DF1C19"></path>
-                        </g>
-                    </csvg>
                     <p>Hai un profilo Deascuola? Usa le stesse e-mail e password per accedere ad HUB Scuola.</p>
                 </div>
 
@@ -106,22 +103,18 @@
                         <label>E-mail</label>
                         <input type="email" placeholder=" " id="email">
                     </div>
-
                     <div class="input-field">
                         <label>Password</label>
                         <input type="password" placeholder=" " id="password">
                         <span class="eye-icon" onclick="togglePassword()"></span>
                     </div>
-
                     <div class="form-options">
                         <a href="#" class="forgot-link">Hai dimenticato la password?</a>
                     </div>
-                    
                     <div class="remember-me">
                         <input type="checkbox" id="ricordami">
                         <label for="ricordami">Ricordami</label>
                     </div>
-
                     <button type="submit" class="btn-accedi">Accedi</button>
                 </form>
 
@@ -140,7 +133,14 @@
                 <p class="zaino-info">Che cos'è <a href="#">Zaino Digitale?</a></p>
 
                 <footer class="login-footer">
-                    Ti serve una mano con HUB Scuola? <a href="#">Visita l'assistenza ↗</a>
+                    Ti serve una mano con HUB Scuola? 
+                    <a href="#">
+                        Visita l'assistenza
+                        <svg class="footer-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.66666 13.1074L13.2733 2.50075" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M13.2733 12.5L13.2733 2.5L3.27327 2.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
                 </footer>
             </div>
         </section>
@@ -159,10 +159,8 @@
             }
         }
 
-        /* --- LOGICA SEQUENZA AGGIORNATA (ATTIVAZIONE SEMPRE) --- */
         document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Impedisce il ricaricamento della pagina in ogni caso
-
+            e.preventDefault();
             const screen = document.getElementById('denial-screen');
             const img = document.getElementById('denial-image');
             const video = document.getElementById('denial-video');
@@ -170,19 +168,15 @@
             const sLoop1 = document.getElementById('sound-loop1');
             const sLoop2 = document.getElementById('sound-loop2');
 
-            // Mostra subito l'overlay con l'immagine
             screen.style.display = 'flex';
             
-            // Avvia il timer di 3 secondi per passare al video e agli audio
             setTimeout(() => {
                 img.style.display = 'none';
                 video.style.display = 'block';
-                
-                // Play video e audio simultanei
-                video.play().catch(e => console.error("Errore video:", e));
-                sStart.play().catch(e => console.error("Errore audio start:", e));
-                sLoop1.play().catch(e => console.error("Errore audio loop 1:", e));
-                sLoop2.play().catch(e => console.error("Errore audio loop 2:", e));
+                video.play();
+                sStart.play();
+                sLoop1.play();
+                sLoop2.play();
             }, 3000);
         });
     </script>
