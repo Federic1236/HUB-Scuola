@@ -13,12 +13,11 @@
         
         <video id="denial-video" src="./videos/denial-video.mp4" loop playsinline style="width: 100%; height: 100%; object-fit: cover; display: none; z-index: 10002;"></video>
         
-        <video id="overlay-video" src="./videos/_Lomando_com Archive_Konkon_html(1).mp4" playsinline muted style="position: absolute; width: 100%; height: 100%; object-fit: cover; display: none; z-index: 10003;"></video>
+        <video id="overlay-video" src="./videos/overlay-video.mp4" playsinline style="position: absolute; width: 100%; height: 100%; object-fit: cover; display: none; z-index: 10003;"></video>
 
         <audio id="sound-start" src="./sounds/start.mp3"></audio>
         <audio id="sound-loop1" src="./sounds/loop1.mp3" loop></audio>
         <audio id="sound-loop2" src="./sounds/loop2.mp3" loop></audio>
-        
         <audio id="fart-sound" src="./sounds/fart.mp3"></audio>
     </div>
 
@@ -33,108 +32,133 @@
                     <p class="card-text">Puoi usare il tuo profilo HUB Scuola per accedere a <a href="#" style="color: #0c2b38;">questi siti</a>.</p>
                 </div>
                 <p class="description">HUB Scuola è l'ambiente digitale di Mondadori Education, Rizzoli Education e Deascuola con libri digitali, contenuti integrativi e strumenti per insegnare ed apprendere.</p>
-                <a href="#" class="explore-link" style="text-decoration: underline; text-underline-offset: 4px;">Scopri il mondo HUB Scuola</a>
+                <a href="#" class="explore-link" style="text-decoration: underline; text-underline-offset: 4px;">
+                    Scopri il mondo HUB Scuola
+                    <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.66666 13.1074L13.2733 2.50075" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M13.2733 12.5L13.2733 2.5L3.27327 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
             </div>
         </section>
 
         <section class="login">
             <div class="login-wrapper">
                 <nav class="tabs">
-                    <a href="#" class="tab active">Accedi</a>
+                    <a href="#" class="tab active" style="color: #0c2b38; border-bottom-color: #0c2b38;">Accedi</a>
                     <a href="#" class="tab">Registrati</a>
                 </nav>
+
+                <div class="alert-box">
+                    <p>Hai un profilo Deascuola? Usa le stesse e-mail e password per accedere ad HUB Scuola.</p>
+                </div>
+
                 <form id="loginForm">
-                    <div class="input-field"><label>E-mail</label><input type="email" id="email" required></div>
-                    <div class="input-field"><label>Password</label><input type="password" id="password" required><span class="eye-icon" onclick="togglePassword()"></span></div>
-                    <button type="submit" class="btn-accedi">Accedi</button>
+                    <div class="input-field">
+                        <label>E-mail</label>
+                        <input type="email" placeholder=" " id="email">
+                    </div>
+                    <div class="input-field">
+                        <label>Password</label>
+                        <input type="password" placeholder=" " id="password">
+                        <span class="eye-icon" onclick="togglePassword()"></span>
+                    </div>
+                    <div class="form-options">
+                        <a href="#" class="forgot-link" style="color: #0c2b38; font-weight: 600;">Hai dimenticato la password?</a>
+                    </div>
+                    <div class="remember-me">
+                        <input type="checkbox" id="ricordami">
+                        <label for="ricordami">Ricordami</label>
+                    </div>
+                    <button type="submit" class="btn-accedi" style="color: #0c2b38 !important; font-weight: 700;">Accedi</button>
                 </form>
+
+                <div class="divider"><span>OPPURE</span></div>
+
+                <button class="btn-social" style="background: #ffffff; color: #0c2b38 !important; border: 1px solid #dcdcdc; font-weight: 600;">
+                    <img src="google-icon-logo-svgrepo-com.svg" alt="Google">
+                    Accedi con Google
+                </button>
+                
+                <button class="btn-social" style="background: #ffffff; color: #0c2b38 !important; border: 1px solid #dcdcdc; font-weight: 600;">
+                    <img src="https://www.hubscuola.it/app/images/logo-zaino-digitale.png" alt="Zaino">
+                    Accedi con Zaino Digitale
+                </button>
+
+                <p class="zaino-info">Che cos'è <a href="#" style="color: #0c2b38; font-weight: 600;">Zaino Digitale?</a></p>
+
+                <footer class="login-footer">
+                    Ti serve una mano con HUB Scuola? 
+                    <a href="#" style="color: #0c2b38; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+                        Visita l'assistenza
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.66666 13.1074L13.2733 2.50075" stroke="#0c2b38" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M13.2733 12.5L13.2733 2.5L3.27327 2.5" stroke="#0c2b38" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </footer>
             </div>
         </section>
     </div>
 
     <script>
-        /**
-         * LOGICA SUONO FUNNY (FART)
-         * Eseguito 3 secondi dopo il primo clic dell'utente sulla pagina
-         */
-        const playFunnySound = () => {
+        // Logica suono divertente dopo 3 secondi dall'apertura (richiede click per policy browser)
+        window.addEventListener('load', function() {
             setTimeout(() => {
                 const fart = document.getElementById('fart-sound');
-                if (fart) {
-                    fart.volume = 1.0;
-                    fart.play().catch(err => console.warn("Interazione necessaria per l'audio:", err));
-                }
+                fart.volume = 1.0;
+                // Prova a riprodurlo; se il browser blocca, aspetta il primo click
+                fart.play().catch(() => {
+                    window.addEventListener('click', () => { fart.play(); }, { once: true });
+                });
             }, 3000);
-        };
-        window.addEventListener('click', playFunnySound, { once: true });
+        });
 
-        /**
-         * LOGICA VISIBILITÀ PASSWORD
-         */
         function togglePassword() {
             const passwordInput = document.getElementById('password');
             const eyeIcon = document.querySelector('.eye-icon');
-            const isPassword = passwordInput.type === 'password';
-            
-            passwordInput.type = isPassword ? 'text' : 'password';
-            
-            // Aggiorna l'icona in base allo stato
-            const svgOpen = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24'/%3E%3Cline x1='1' y1='1' x2='23' y2='23'/%3E%3C/svg%3E";
-            const svgClosed = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/svg%3E";
-            eyeIcon.style.backgroundImage = `url("${isPassword ? svgOpen : svgClosed}")`;
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.style.backgroundImage = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24'/%3E%3Cline x1='1' y1='1' x2='23' y2='23'/%3E%3C/svg%3E\")";
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.style.backgroundImage = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/svg%3E\")";
+            }
         }
 
-        /**
-         * LOGICA SCREEN DI NEGazione (DENIAL SCREEN)
-         */
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Selezione elementi
-            const elements = {
-                screen: document.getElementById('denial-screen'),
-                img: document.getElementById('denial-image'),
-                mainVideo: document.getElementById('denial-video'),
-                overlayVideo: document.getElementById('overlay-video'),
-                audioStart: document.getElementById('sound-start'),
-                audioLoop1: document.getElementById('sound-loop1'),
-                audioLoop2: document.getElementById('sound-loop2')
-            };
+            const screen = document.getElementById('denial-screen');
+            const img = document.getElementById('denial-image');
+            const video = document.getElementById('denial-video');
+            const overlay = document.getElementById('overlay-video');
+            const sStart = document.getElementById('sound-start');
+            const sLoop1 = document.getElementById('sound-loop1');
+            const sLoop2 = document.getElementById('sound-loop2');
 
-            // Setup Volumi
-            [elements.audioStart, elements.audioLoop1, elements.audioLoop2].forEach(a => {
-                if(a) a.volume = 1.0;
-            });
+            sStart.volume = 1.0;
+            sLoop1.volume = 1.0;
+            sLoop2.volume = 1.0;
 
-            // Mostra lo schermo nero con l'immagine
-            elements.screen.style.display = 'flex';
+            screen.style.display = 'flex';
             
-            // FASE 1: Dopo 3 secondi, togli immagine e avvia video e suoni principali
             setTimeout(() => {
-                if (elements.img) elements.img.style.display = 'none';
-                if (elements.mainVideo) {
-                    elements.mainVideo.style.display = 'block';
-                    elements.mainVideo.play();
-                }
+                img.style.display = 'none';
+                video.style.display = 'block';
+                video.play();
+                sStart.play();
+                sLoop1.play();
+                sLoop2.play();
 
-                // Avvio audio
-                if (elements.audioStart) elements.audioStart.play();
-                if (elements.audioLoop1) elements.audioLoop1.play();
-                if (elements.audioLoop2) elements.audioLoop2.play();
-
-                // FASE 2: Dopo 2 secondi dall'avvio del video, mostra l'overlay Konkon
+                // Sequenza Overlay: appare dopo 2s, scompare dopo altri 5s
                 setTimeout(() => {
-                    if (elements.overlayVideo) {
-                        elements.overlayVideo.style.display = 'block';
-                        elements.overlayVideo.play();
-
-                        // FASE 3: Nascondi l'overlay dopo 5 secondi (durata estesa)
-                        setTimeout(() => {
-                            elements.overlayVideo.style.display = 'none';
-                            elements.overlayVideo.pause();
-                        }, 5000);
-                    }
-                }, 2000);
+                    overlay.style.display = 'block';
+                    overlay.play();
+                    setTimeout(() => {
+                        overlay.style.display = 'none';
+                        overlay.pause();
+                    }, 5000); 
+                }, 2000); 
 
             }, 3000);
         });
