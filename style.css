@@ -1,74 +1,74 @@
+/* Variables */
 :root {
-    --dark-bg: #0b2d39;
-    --lime-btn: #bdf231;
-    --text-main: #003744;
-    --border-gray: #d1d5db;
+    --dark-teal: #0b2d39;
+    --lime-green: #bdf231;
+    --text-blue: #003744;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-body {
-    font-family: 'Figtree', sans-serif;
-    color: var(--text-main);
-}
+body { font-family: 'Figtree', sans-serif; color: var(--text-blue); }
 
 .container { display: flex; min-height: 100vh; }
 
-/* --- Branding Side --- */
+/* Branding Side */
 .branding {
-    flex: 1.1;
-    background-color: var(--dark-bg);
+    flex: 1;
+    background-color: var(--dark-teal);
     position: relative;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    padding: 40px;
+    padding: 60px;
 }
 
 .svg-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
 
 .branding-content { position: relative; z-index: 2; text-align: center; max-width: 480px; }
 
+.hub-logo { width: 120px; margin-bottom: 30px; }
+
 .fraunces-title {
-    font-family: 'Fraunces', sans-serif;
-    font-feature-settings: 'ss02'
-    font-size: 40px;
-    line-height: 48px;
-    margin: 20px 0;
+    font-family: 'Fraunces', serif;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    /* Custom Weight requested */
+    font-weight: 669; 
     font-variation-settings: "SOFT" 100, "WONK" 1;
-    font-weight: 700;
-    
+    margin-bottom: 30px;
 }
 
 .logo-card {
     background: white;
-    border-radius: 12px;
-    padding: 24px;
-    color: #333;
+    border-radius: 16px;
+    padding: 25px;
     margin-bottom: 40px;
+    color: var(--text-blue);
 }
 
-.logos { display: flex; justify-content: space-around; margin-bottom: 15px; font-weight: bold; }
+.tris-loghi { width: 100%; max-width: 320px; margin-bottom: 10px; }
 
-.explore-link { color: var(--lime-btn); text-decoration: none; font-weight: 600; }
+.inline-link { color: var(--text-blue); font-weight: 700; }
 
-/* --- Login Side --- */
-.login { flex: 0.9; background: white; display: flex; justify-content: center; align-items: center; padding: 40px; }
+.description { font-size: 1.1rem; line-height: 1.6; margin-bottom: 25px; }
+
+.explore-link { color: var(--lime-green); text-decoration: none; font-weight: 700; font-size: 1.1rem; }
+
+/* Login Side */
+.login { flex: 1; background: white; display: flex; justify-content: center; align-items: center; padding: 40px; }
 
 .login-wrapper { width: 100%; max-width: 440px; }
 
-.tabs { display: flex; gap: 30px; border-bottom: 1px solid #eee; margin-bottom: 30px; }
+.tabs { display: flex; gap: 30px; border-bottom: 1px solid #e5e7eb; margin-bottom: 30px; }
 
-.tab { text-decoration: none; color: #6b7280; font-weight: 700; padding-bottom: 10px; }
+.tab { text-decoration: none; color: #9ca3af; font-weight: 700; padding-bottom: 10px; font-size: 1.1rem; }
 
-.tab.active { color: var(--text-main); border-bottom: 3px solid var(--text-main); }
+.tab.active { color: var(--text-blue); border-bottom: 3px solid var(--text-blue); }
 
-/* Input labels sitting on border */
-.input-field {
-    position: relative;
-    margin-bottom: 25px;
-}
+/* Input Styles */
+.input-field { position: relative; margin-bottom: 25px; }
 
 .input-field label {
     position: absolute;
@@ -77,27 +77,43 @@ body {
     background: white;
     padding: 0 5px;
     font-size: 0.85rem;
-    color: #374151;
+    font-weight: 600;
 }
 
 .input-field input {
     width: 100%;
-    padding: 14px;
-    border: 1px solid var(--border-gray);
-    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-family: 'Figtree', sans-serif;
     font-size: 1rem;
 }
 
 .btn-accedi {
     width: 100%;
-    background-color: var(--lime-btn);
+    background-color: var(--lime-green);
     border: none;
-    padding: 16px;
-    border-radius: 8px;
+    padding: 18px;
+    border-radius: 10px;
     font-weight: 800;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    color: var(--text-blue);
     cursor: pointer;
     margin-top: 10px;
+}
+
+.divider { text-align: center; margin: 30px 0; border-top: 1px solid #e5e7eb; position: relative; }
+
+.divider span {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 0 15px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #6b7280;
 }
 
 .btn-social {
@@ -105,26 +121,27 @@ body {
     padding: 14px;
     background: white;
     border: 1px solid #e5e7eb;
-    border-radius: 8px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
-    margin-bottom: 12px;
-    font-weight: 600;
+    margin-bottom: 15px;
+    font-weight: 700;
+    font-family: 'Figtree', sans-serif;
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
+/* Floating button */
 .help-fab {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
+    bottom: 25px;
+    right: 25px;
+    width: 65px;
+    height: 65px;
     background: white;
     border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
     display: flex;
     justify-content: center;
     align-items: center;
