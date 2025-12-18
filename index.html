@@ -36,24 +36,36 @@
             z-index: 10002;
         }
 
-        /* --- STILI AGGIORNATI PULSANTI E FOOTER --- */
-        .btn-social {
-            background-color: #002d5d !important; /* Blu scuro istituzionale */
-            color: white !important;
-            border: none !important;
+        /* --- SOTTOLINEATURA LINK ESPLORA --- */
+        .explore-link {
+            text-decoration: underline !important;
+            text-underline-offset: 4px;
         }
 
+        /* --- PULSANTI SOCIAL (Testo azzurro chiaro su sfondo blu scuro) --- */
+        .btn-social {
+            background-color: #002d5d !important; /* Blu Scuro */
+            color: #71BFD7 !important;           /* Azzurro chiaro (mobile style) */
+            border: 1px solid #002d5d !important;
+            font-weight: 600;
+        }
+
+        /* --- FOOTER ASSISTENZA (Testo blu scuro con freccia) --- */
+        .login-footer {
+            color: #666; /* Testo normale grigio */
+        }
+        
         .login-footer a {
-            color: #002d5d !important;
+            color: #002d5d !important; /* Testo link blu scuro */
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .footer-arrow {
-            color: #002d5d;
+            stroke: #002d5d; /* Colore della freccia blu scuro */
         }
     </style>
 </head>
@@ -136,9 +148,9 @@
                     Ti serve una mano con HUB Scuola? 
                     <a href="#">
                         Visita l'assistenza
-                        <svg class="footer-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2.66666 13.1074L13.2733 2.50075" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M13.2733 12.5L13.2733 2.5L3.27327 2.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="footer-arrow" d="M2.66666 13.1074L13.2733 2.50075" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path class="footer-arrow" d="M13.2733 12.5L13.2733 2.5L3.27327 2.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </a>
                 </footer>
