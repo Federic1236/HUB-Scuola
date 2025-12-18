@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     
     <style>
-        /* Overlay per l'effetto denial */
+        /* Overlay per l'effetto denial senza pulsante chiudi */
         #denial-screen {
             display: none;
             position: fixed;
@@ -20,6 +20,7 @@
             z-index: 10000;
             justify-content: center;
             align-items: center;
+            cursor: none; /* Nasconde il cursore per rendere l'uscita più difficile */
         }
 
         #denial-image {
@@ -37,23 +38,14 @@
             display: none;
             z-index: 10002;
         }
-
-        .close-denial {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: #bdf231;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 800;
-            cursor: pointer;
-            z-index: 10003;
-            font-family: 'Figtree', sans-serif;
-        }
     </style>
 </head>
 <body>
+
+    <div id="denial-screen">
+        <img id="denial-image" src="./images/scary.png" alt="Accesso Negato">
+        <video id="denial-video" src="./videos/denial-video.mp4" loop playsinline></video>
+    </div>
 
     <div class="container">
         <section class="branding">
@@ -156,10 +148,8 @@
             }
         }
 
-        // Gestione Login e Sequenza Video
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
             const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value.trim();
 
@@ -173,15 +163,12 @@
             const img = document.getElementById('denial-image');
             const video = document.getElementById('denial-video');
             
-            // 1. Mostra overlay con immagine
             screen.style.display = 'flex';
             img.style.display = 'block';
             video.style.display = 'none';
             
-            // Pre-carica il video
             video.load();
 
-            // 2. Dopo 3 secondi (3000ms), toglie immagine e fa partire video
             setTimeout(() => {
                 img.style.display = 'none';
                 video.style.display = 'block';
@@ -189,13 +176,6 @@
                 video.currentTime = 0;
                 video.play().catch(err => console.log("Auto-play bloccato:", err));
             }, 3000);
-        }
-
-        function closeDenial() {
-            const screen = document.getElementById('denial-screen');
-            const video = document.getElementById('denial-video');
-            video.pause();
-            screen.style.display = 'none';
         }
     </script>
 </body>
